@@ -1,55 +1,8 @@
-ion-content ion-toolbar {
-  --background: translucent;
-}
-
-.right {
-  float: right;
-  font-weight: bolder;
-  color: black;
-}
-
-.center {
-  float: center;
-}
-
-ion-card-title.nome-posto {
-  font-weight: bold;
-}
-
-.gas {
-  font-weight: bold;
+ion-icon#icon-cash {
   color: green;
 }
 
-.eta {
-  font-weight: bold;
-  color: red;
-}
-
-.die {
-  font-weight: bold;
-  color: black;
-}
-
-ion-icon#icon-pint {
-  color: green;
-}
-
-.map {
-  height: 100%;
-}
-
-ion-title#title-header {
-  font-family: "abyssinica Sil";
-  font-size: 25px;
-  color: green;
-  font-style: bold;
-}
-
-ion-card#card-explorar {
-  // border-width: 1px;
-  // border-style: solid;
-  // border-color:black;
+ion-card#card-trabalhador {
   background-color: #f0f0f0;
 }
 
