@@ -1,46 +1,89 @@
 <ion-grid>
-  	<ion-row justify-content-center>
-		<ion-col col-xs-12 col-sm-12 col-md-12 col-lg-12>
-			<div>
-				<h4 class="ion-text-center">Cadastro</h4>
-			</div>
-			<div class="ion-padding">
-				<ion-item>
-					<ion-input type="text" placeholder="Você deseja se cadastrar como cliente ou trabalhador?"></ion-input>
-				</ion-item>
+  <ion-row justify-content-center>
+    <ion-col col-xs-12 col-sm-12 col-md-12 col-lg-12>
+      <div>
+        <h4 class="ion-text-center">Cadastro</h4>
+      </div>
+      <div class="ion-padding">
+        <ion-item>
+          <ion-label>
+            Você deseja se cadastrar como cliente ou trabalhador?
+          </ion-label>
+        </ion-item>
 
-				<ion-item>
-					<ion-input type="text" placeholder="Nome completo"></ion-input>
-				</ion-item>
+        <ion-item>
+          <ion-row>
+            <ion-item>
+              <ion-label>Cliente</ion-label>
+              <ion-checkbox color="primary" slot="start"></ion-checkbox>
+            </ion-item>
+          </ion-row>
+          <ion-row>
+            <ion-item>
+              <ion-checkbox color="primary" slot="start"></ion-checkbox>
+              <ion-label>Profissional</ion-label>
+            </ion-item>
+          </ion-row>
+        </ion-item>
 
-				<ion-item>
-					<ion-input type="E-mail" placeholder="E-mail"></ion-input>
-				</ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Nome completo"></ion-input>
+        </ion-item>
 
-				<ion-item>
-					<ion-input type="password" placeholder="Senha"></ion-input>
-				</ion-item>
+        <ion-item>
+          <ion-input type="E-mail" placeholder="E-mail"></ion-input>
+        </ion-item>
 
-				<ion-item>
-					<ion-input type="password" placeholder="Confirmar senha"></ion-input>
-				</ion-item>
+        <ion-item>
+          <ion-input type="password" placeholder="Senha"></ion-input>
+        </ion-item>
 
-				<ion-item>
-					<ion-input type="text" placeholder="Área de atuação"></ion-input>
-				</ion-item>
+        <ion-item>
+          <ion-input type="password" placeholder="Confirmar senha"></ion-input>
+        </ion-item>
 
-				<ion-item>
-					<ion-input type="number" placeholder="Telefone Celular"></ion-input>
-				</ion-item>
-				<ion-item>
-					<ion-input type="number" placeholder="Celular"></ion-input>
-				</ion-item>				
-			</div>
+        <ion-item>
+          <ion-label>
+            Área de Atuação:
+          </ion-label>
+        </ion-item>
 
-			<div class="ion-padding">
-				<ion-button size="large" href="/tabs/tab2" expand="block">Cadastrar</ion-button>
-			</div>
-		</ion-col>
-  	</ion-row>
+        <ion-item>
+          <ion-row>
+            <ion-item>
+              <ion-label>Faxineira</ion-label>
+              <ion-checkbox color="primary" slot="start"></ion-checkbox>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item>
+              <ion-checkbox color="primary" slot="start"></ion-checkbox>
+              <ion-label>Encanador</ion-label>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item>
+              <ion-checkbox color="primary" slot="start"></ion-checkbox>
+              <ion-label>Eletricista</ion-label>
+            </ion-item>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="number" placeholder="Telefone Celular"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="number" placeholder="Celular"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="ion-padding">
+        <ion-button size="large" href="/tabs/tab2" expand="block"
+          >Cadastrar</ion-button
+        >
+      </div>
+    </ion-col>
+  </ion-row>
 </ion-grid>
-

@@ -2,7 +2,7 @@ $white-color: #fff;
 $height100: 100%;
 
 ion-grid {
-  width:100%;
+  width: 100%;
   height: $height100;
   background: rgb(59, 54, 63);
 }
@@ -30,9 +30,9 @@ ion-button {
 
 @media (min-width: 240px) and (max-width: 768px) {
   ion-grid {
-      background: $white-color;
+    background: $white-color;
   }
   ion-col {
-      border: none;
+    border: none;
   }
 }
