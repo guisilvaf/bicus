@@ -7,6 +7,7 @@ var express_1 = __importDefault(require("express"));
 var body_parser_1 = __importDefault(require("body-parser"));
 var users_route_1 = __importDefault(require("./routes/users.route"));
 var works_route_1 = __importDefault(require("./routes/works.route"));
+var cors = require("cors");
 var Server = /** @class */ (function () {
     function Server() {
         this.app = express_1.default();
@@ -14,7 +15,8 @@ var Server = /** @class */ (function () {
         this.routes();
     }
     Server.prototype.config = function () {
-        this.app.set('port', process.env.PORT || 4200);
+        this.app.set('port', process.env.PORT || 8080);
+        this.app.use(cors());
         this.app.use(body_parser_1.default.json());
         this.app.use(body_parser_1.default.urlencoded({
             extended: true
@@ -30,8 +32,12 @@ var Server = /** @class */ (function () {
             console.log("Server rodando na porta " + _this.app.get('port') + "!");
         });
         // this.app.use(express.static(__dirname + '/../dist/dchild-front'));
+        // this.app.get('/', function (req, res) {
+        //   const index = path.join(__dirname, '../www/', 'index.html');
+        //   res.sendFile(index);
+        // });
         this.app.get('/', function (req, res) {
-            res.send('Página inicial');
+            res.send('Tirar isso se for subir.');
         });
     };
     return Server;

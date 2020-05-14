@@ -27,13 +27,13 @@
         </ion-item>
 
         <ion-item>
-          <ion-input type="text" placeholder="Nome completo"></ion-input>
+          <ion-input type="text" placeholder="Nome completo" [(ngModel)]='data.username'></ion-input>
           <ion-label>|</ion-label>
-          <ion-input type="E-mail" placeholder="E-mail"></ion-input>
+          <ion-input type="E-mail" placeholder="E-mail" [(ngModel)]='data.email'></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-input type="password" placeholder="Senha"></ion-input>
+          <ion-input type="password" placeholder="Senha" [(ngModel)]='data.password'></ion-input>
           <ion-label>|</ion-label>
           <ion-input type="password" placeholder="Confirmar senha"></ion-input>
         </ion-item>
@@ -68,15 +68,16 @@
         </ion-item>
 
         <ion-item>
-          <ion-input type="number" placeholder="Telefone Celular"></ion-input>
+          <ion-input type="number" placeholder="Telefone Celular" [(ngModel)]='data.cell'></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="number" placeholder="Telefone Fixo"></ion-input>
+          <ion-input type="number" placeholder="Telefone Fixo" [(ngModel)]='data.phone'></ion-input>
         </ion-item>
       </div>
 
       <div class="ion-padding">
-        <ion-button size="medium" href="/tabs/tab2" expand="block"
+        <!-- <ion-button size="medium" href="/tabs/tab2" expand="block" (click)='signUp()' -->
+        <ion-button size="medium" expand="block" (click)='signUp()'
           >Cadastrar</ion-button
         >
       </div>

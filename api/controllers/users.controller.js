@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.addUser = exports.getUserById = exports.getUsers = void 0;
 var config_1 = require("../sql/config");
 function getUsers(req, res) {
-    var query = "SELECT * FROM usuario INNER JOIN trabalhador ON usuario.id_usuario = trabalhador.id_trabalhador\n              INNER JOIN trabalhador_especialidade AS t ON usuario.id_usuario = t.id_trabalhador\n              INNER JOIN especialidade AS speciality ON t.id_especialidade = speciality.id_especialidade;";
+    var query = "SELECT * FROM usuario LEFT JOIN trabalhador ON usuario.id_usuario = trabalhador.id_trabalhador\n              LEFT JOIN trabalhador_especialidade AS t ON usuario.id_usuario = t.id_trabalhador\n              LEFT JOIN especialidade AS speciality ON t.id_especialidade = speciality.id_especialidade;";
     config_1.connection.query(query, function (err, results) {
         if (err)
             throw err;
@@ -33,6 +33,7 @@ function getUserById(req, res) {
 exports.getUserById = getUserById;
 function addUser(req, res) {
     var data = req.body;
+    console.log(data);
     var query = "INSERT INTO usuario (nome_usuario, data_nascimento, email, senha, telefone_celular, telefone_fixo)\n              VALUES ('" + data.username + "', '" + data.born + "', '" + data.email + "', '" + data.password + "', '" + data.cell + "', '" + data.phone + "');";
     config_1.connection.query(query, function (err) {
         if (err)
