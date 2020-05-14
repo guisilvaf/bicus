@@ -12,12 +12,25 @@ export class Tab3Page {
     email: null,
     password: null,
     cell: null,
-    phone: null
+    phone: null,
+    speciality: null
   };
+
+  public works = [];
 
   constructor(private usersService: UsersService) {
     this.usersService.getWorks()
-    .subscribe(info => console.log(info));
+    .subscribe(works => this.works = works);
+  }
+
+  changeSpeciality(specialityId) {
+    // Desmarcando especialidade.
+    if(this.data.speciality == specialityId) {
+      this.data.speciality = null;
+      return;
+    }
+
+    this.data.speciality = specialityId;
   }
 
   signUp() {

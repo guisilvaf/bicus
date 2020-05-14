@@ -45,24 +45,10 @@
         </ion-item>
 
         <ion-item>
-          <ion-row>
+          <ion-row *ngFor='let work of works; let i = index'>
             <ion-item>
-              <ion-label>Faxineira</ion-label>
-              <ion-checkbox color="primary" slot="start"></ion-checkbox>
-            </ion-item>
-          </ion-row>
-
-          <ion-row>
-            <ion-item>
-              <ion-checkbox color="primary" slot="start"></ion-checkbox>
-              <ion-label>Encanador</ion-label>
-            </ion-item>
-          </ion-row>
-
-          <ion-row>
-            <ion-item>  
-              <ion-checkbox color="primary" slot="start"></ion-checkbox>
-              <ion-label>Eletricista</ion-label>
+              <ion-label>{{work.especialidade}}</ion-label>
+              <ion-checkbox color="primary" slot="start" (click)='changeSpeciality(i + 1)'></ion-checkbox>
             </ion-item>
           </ion-row>
         </ion-item>

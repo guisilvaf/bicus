@@ -33,20 +33,14 @@ function getUserById(req, res) {
 exports.getUserById = getUserById;
 function addUser(req, res) {
     var data = req.body;
-    console.log(data);
     var query = "INSERT INTO usuario (nome_usuario, data_nascimento, email, senha, telefone_celular, telefone_fixo)\n              VALUES ('" + data.username + "', '" + data.born + "', '" + data.email + "', '" + data.password + "', '" + data.cell + "', '" + data.phone + "');";
     config_1.connection.query(query, function (err) {
         if (err)
             throw err;
         // Caso o usuário for um trabalhador, inserir dados na tabela trabalhador e trabalhador_especialidade.
-        if (data.speciality) {
-            var query1 = "INSERT INTO trabalhador (id_trabalhador, preco, descricao, disponibilidade)\n                    VALUES (LAST_INSERT_ID(), '" + data.price + "', '" + data.desc + "', '" + data.availability + "');";
+        if (data.speciality != null) {
+            var query1 = "INSERT INTO trabalhador_especialidade (id_trabalhador, id_especialidade)\n                    VALUES (LAST_INSERT_ID(), " + data.speciality + ");";
             config_1.connection.query(query1, function (err) {
-                if (err)
-                    throw err;
-            });
-            var query2 = "INSERT INTO trabalhador_especialidade (id_trabalhador, id_especialidade)\n                    VALUES (LAST_INSERT_ID(), " + data.speciality + ");";
-            config_1.connection.query(query2, function (err) {
                 if (err)
                     throw err;
             });

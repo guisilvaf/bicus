@@ -13,7 +13,6 @@ export class UsersService {
   }
 
   public addUser(data): Observable<any> {
-    console.log('aaa');
     return this.http.post('http://localhost:8080/api/users/', data);
   }
 }
