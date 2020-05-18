@@ -13,15 +13,15 @@
 
         <ion-item>
           <ion-row>
-            <ion-item>
+            <ion-item id="cliente">
               <ion-label>Cliente</ion-label>
-              <ion-checkbox color="primary" slot="start"></ion-checkbox>
+              <ion-checkbox color="primary" slot="start" (click)='ocultarMostrarElemento("cliente")'></ion-checkbox>
             </ion-item>
           </ion-row>
           <ion-row>
-            <ion-item>
-              <ion-checkbox color="primary" slot="start"></ion-checkbox>
-              <ion-label>Profissional</ion-label>
+            <ion-item id="profissional">
+              <ion-checkbox color="primary" slot="start" (click)='ocultarMostrarElemento("profissional")'></ion-checkbox>
+              <ion-label id="profissional">Profissional</ion-label>
             </ion-item>
           </ion-row>
         </ion-item>
@@ -39,16 +39,43 @@
         </ion-item>
 
         <ion-item>
+          <ion-input type="text" placeholder="CPF" [(ngModel)]='data.cpf'></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="date" placeholder="data nascimento" [(ngModel)]='data.born'></ion-input>
+        </ion-item>
+
+        <ion-item id="atuação">
           <ion-label>
             Área de Atuação:
           </ion-label>
         </ion-item>
 
-        <ion-item>
+        <ion-item id="work">
           <ion-row *ngFor='let work of works; let i = index'>
-            <ion-item>
+            <ion-item >
               <ion-label>{{work.especialidade}}</ion-label>
               <ion-checkbox color="primary" slot="start" (click)='changeSpeciality(i + 1)'></ion-checkbox>
+            </ion-item>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Sexo:</ion-label>
+        </ion-item>
+
+        <ion-item id="sexo">
+          <ion-row>
+            <ion-item>
+              <ion-label>Masculino</ion-label>
+              <ion-checkbox color="primary" slot="start"></ion-checkbox>
+            </ion-item>
+          </ion-row>
+          <ion-row>
+            <ion-item>
+              <ion-label>Feminino</ion-label>
+              <ion-checkbox color="primary" slot="start"></ion-checkbox>
             </ion-item>
           </ion-row>
         </ion-item>
