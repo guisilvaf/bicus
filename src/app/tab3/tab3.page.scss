@@ -1,10 +1,8 @@
 $white-color: #fff;
 $height100: 100%;
 
-ion-grid {
-  width: 100%;
-  height: $height100;
-  background: rgb(59, 54, 63);
+ion-content {
+  --background: rgb(59, 54, 63);
 }
 
 ion-row {
@@ -18,21 +16,9 @@ ion-row {
   margin: auto;
 }
 
-ion-col {
+ion-card {
   border: 2px solid #488aff;
   background: $white-color;
   border-radius: 5px;
 }
 
-ion-button {
-  font-weight: 300;
-}
-
-@media (min-width: 240px) and (max-width: 768px) {
-  ion-grid {
-    background: $white-color;
-  }
-  ion-col {
-    border: none;
-  }
-}

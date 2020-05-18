@@ -1,99 +1,96 @@
-<ion-grid>
-  <ion-row justify-content-center>
-    <ion-col col-xs-12 col-sm-12 col-md-12 col-lg-12>
-      <div>
-        <h4 class="ion-text-center">Cadastro</h4>
-      </div>
-      <div class="ion-padding">
-        <ion-item>
-          <ion-label>
-            Você deseja se cadastrar como cliente ou trabalhador?
-          </ion-label>
-        </ion-item>
+<ion-content>
+  <ion-card>
+    <div>
+      <h4 class="ion-text-center">Cadastro</h4>
+    </div>
 
-        <ion-item>
-          <ion-row>
-            <ion-item id="cliente">
-              <ion-label>Cliente</ion-label>
-              <ion-checkbox color="primary" slot="start" (click)='ocultarMostrarElemento("cliente")'></ion-checkbox>
-            </ion-item>
-          </ion-row>
-          <ion-row>
-            <ion-item id="profissional">
-              <ion-checkbox color="primary" slot="start" (click)='ocultarMostrarElemento("profissional")'></ion-checkbox>
-              <ion-label id="profissional">Profissional</ion-label>
-            </ion-item>
-          </ion-row>
-        </ion-item>
+    <div class="ion-padding">
+      <ion-item>
+        <ion-label>
+          Você deseja se cadastrar como cliente ou trabalhador?
+        </ion-label>
+      </ion-item>
 
-        <ion-item>
-          <ion-input type="text" placeholder="Nome completo" [(ngModel)]='data.username'></ion-input>
-          <ion-label>|</ion-label>
-          <ion-input type="E-mail" placeholder="E-mail" [(ngModel)]='data.email'></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-row>
+          <ion-item id="cliente">
+            <ion-label>Cliente</ion-label>
+            <ion-checkbox color="primary" slot="start" (click)='ocultarMostrarElemento("cliente")'></ion-checkbox>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-item id="profissional">
+            <ion-checkbox color="primary" slot="start" (click)='ocultarMostrarElemento("profissional")'></ion-checkbox>
+            <ion-label>Profissional</ion-label>
+          </ion-item>
+        </ion-row>
+      </ion-item>
 
-        <ion-item>
-          <ion-input type="password" placeholder="Senha" [(ngModel)]='data.password'></ion-input>
-          <ion-label>|</ion-label>
-          <ion-input type="password" placeholder="Confirmar senha"></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Nome completo" [(ngModel)]='data.username'></ion-input>
+        <ion-label>|</ion-label>
+        <ion-input type="E-mail" placeholder="E-mail" [(ngModel)]='data.email'></ion-input>
+      </ion-item>
 
-        <ion-item>
-          <ion-input type="text" placeholder="CPF" [(ngModel)]='data.cpf'></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="Senha" [(ngModel)]='data.password'></ion-input>
+        <ion-label>|</ion-label>
+        <ion-input type="password" placeholder="Confirmar senha"></ion-input>
+      </ion-item>
 
-        <ion-item>
-          <ion-input type="date" placeholder="data nascimento" [(ngModel)]='data.born'></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="CPF" [(ngModel)]='data.cpf'></ion-input>
+      </ion-item>
 
-        <ion-item id="atuação">
-          <ion-label>
-            Área de Atuação:
-          </ion-label>
-        </ion-item>
+      <ion-item>
+        <ion-input type="date" placeholder="data nascimento" [(ngModel)]='data.born'></ion-input>
+      </ion-item>
 
-        <ion-item id="work">
-          <ion-row *ngFor='let work of works; let i = index'>
-            <ion-item >
-              <ion-label>{{work.especialidade}}</ion-label>
-              <ion-checkbox color="primary" slot="start" (click)='changeSpeciality(i + 1)'></ion-checkbox>
-            </ion-item>
-          </ion-row>
-        </ion-item>
+      <ion-item id="atuação">
+        <ion-label>
+          Área de Atuação:
+        </ion-label>
+      </ion-item>
 
-        <ion-item>
-          <ion-label>Sexo:</ion-label>
-        </ion-item>
+      <ion-item id="work">
+        <ion-row *ngFor='let work of works; let i = index'>
+          <ion-item >
+            <ion-label>{{work.especialidade}}</ion-label>
+            <ion-checkbox color="primary" slot="start" (click)='changeSpeciality(i + 1)'></ion-checkbox>
+          </ion-item>
+        </ion-row>
+      </ion-item>
 
-        <ion-item id="sexo">
-          <ion-row>
-            <ion-item>
-              <ion-label>Masculino</ion-label>
-              <ion-checkbox color="primary" slot="start"></ion-checkbox>
-            </ion-item>
-          </ion-row>
-          <ion-row>
-            <ion-item>
-              <ion-label>Feminino</ion-label>
-              <ion-checkbox color="primary" slot="start"></ion-checkbox>
-            </ion-item>
-          </ion-row>
-        </ion-item>
+      <ion-item>
+        <ion-label>Sexo:</ion-label>
+      </ion-item>
 
-        <ion-item>
-          <ion-input type="number" placeholder="Telefone Celular" [(ngModel)]='data.cell'></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input type="number" placeholder="Telefone Fixo" [(ngModel)]='data.phone'></ion-input>
-        </ion-item>
-      </div>
+      <ion-item>
+        <ion-row>
+          <ion-item>
+            <ion-label>Masculino</ion-label>
+            <ion-checkbox color="primary" slot="start"></ion-checkbox>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-item>
+            <ion-label>Feminino</ion-label>
+            <ion-checkbox color="primary" slot="start"></ion-checkbox>
+          </ion-item>
+        </ion-row>
+      </ion-item>
 
-      <div class="ion-padding">
-        <!-- <ion-button size="medium" href="/tabs/tab2" expand="block" (click)='signUp()' -->
-        <ion-button size="medium" expand="block" (click)='signUp()'
-          >Cadastrar</ion-button
-        >
-      </div>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+      <ion-item>
+        <ion-input type="number" placeholder="Telefone Celular" [(ngModel)]='data.cell'></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" placeholder="Telefone Fixo" [(ngModel)]='data.phone'></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="ion-padding">
+      <!-- <ion-button size="medium" href="/tabs/tab2" expand="block" (click)='signUp()' -->
+      <ion-button size="medium" expand="block" (click)='signUp()'>Cadastrar</ion-button>
+    </div>
+  </ion-card>
+</ion-content>
