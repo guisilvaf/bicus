@@ -27,19 +27,22 @@
       </ion-item>
 
       <ion-item>
-        <ion-input type="text" placeholder="Nome completo" [(ngModel)]='data.username'></ion-input>
+        <ion-input type="text" placeholder="Nome completo" maxlength="20" pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+        title="Nome válido" [(ngModel)]='data.username' required></ion-input>
         <ion-label>|</ion-label>
-        <ion-input type="E-mail" placeholder="E-mail" [(ngModel)]='data.email'></ion-input>
+        <ion-input type="email" placeholder="ex: user@gmail.com" pattern="^[A-Za-z0-9_.]+@[a-z]+.[a-z]+$"
+        title="E-mail válido" [(ngModel)]='data.email' required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input type="password" placeholder="Senha" [(ngModel)]='data.password'></ion-input>
+        <ion-input type="password" placeholder="Senha" [(ngModel)]='data.password' required></ion-input>
         <ion-label>|</ion-label>
-        <ion-input type="password" placeholder="Confirmar senha"></ion-input>
+        <ion-input type="password" placeholder="Confirmar senha" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input type="text" placeholder="CPF" [(ngModel)]='data.cpf'></ion-input>
+        <ion-input type="text" placeholder=" ex: 000.000.000-00" maxlength="14" pattern="^(\d{3}\.\d{3}\.\d{3}-\d{2})$"
+        title="cpf válido" [(ngModel)]='data.cpf' required></ion-input>
       </ion-item>
 
       <ion-item>
@@ -81,10 +84,12 @@
       </ion-item>
 
       <ion-item>
-        <ion-input type="number" placeholder="Telefone Celular" [(ngModel)]='data.cell'></ion-input>
+        <ion-input type="tel" placeholder="ex: (61) 99999-9999" maxlength="15" pattern="\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}" 
+        title="número válido" [(ngModel)]='data.cell' required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="number" placeholder="Telefone Fixo" [(ngModel)]='data.phone'></ion-input>
+        <ion-input type="tel" placeholder=" Opcional número fixo. Ex: (61) 3333-3333"  maxlength="14" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4}" 
+        title="número válido" [(ngModel)]='data.phone'></ion-input>
       </ion-item>
     </div>
 

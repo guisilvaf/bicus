@@ -51,6 +51,5 @@ export class Tab3Page {
       document.getElementById('work').style.display = 'block';
   }
 }
-
 }
 
