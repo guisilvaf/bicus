@@ -18,19 +18,29 @@
 
         <ion-col size="2">
           <ion-card-header>
-            <ion-card-content id="nome-posto">
+            <ion-card-content>
               <h6><ion-icon name="people"></ion-icon> {{worker.nome}}</h6>
             </ion-card-content>
-            <ion-card-content id="nome-posto">
+            <ion-card-content>
               <h6>
-                <ion-icon name="cash" id="icon-cash"></ion-icon> R${{worker.preco}}
+                <ion-icon name="cash"></ion-icon> R${{worker.preco}}
               </h6>
             </ion-card-content>
-            <ion-card-content id="nome-posto">
+            <ion-card-content>
               <h6>
                 <ion-icon name="calendar-outline"></ion-icon> {{worker.disponibilidade}}
               </h6>
             </ion-card-content>
+            <ion-card-content>
+              <h6>
+                <ion-icon name="calendar-outline"></ion-icon> {{worker.sexo}}
+              </h6>
+            </ion-card-content>
+            <ion-card-content>
+              <h6>
+                <ion-icon name="calendar-outline"></ion-icon> {{worker.especialidade}}
+              </h6>
+            </ion-card-content>               
           </ion-card-header>
         </ion-col>
 

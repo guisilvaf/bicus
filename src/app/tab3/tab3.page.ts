@@ -54,6 +54,7 @@ export class Tab3Page {
       document.getElementById('work').style.display = 'none'
       document.getElementById('preco').style.display = 'none'
       document.getElementById('descricao').style.display = 'none';
+      document.getElementById('disponibilidade').style.display = 'none';
   
   } else if(display === document.getElementById('profissional')){
       //abas disponíveis além das já existentes para cadastro como profissional.
@@ -61,6 +62,7 @@ export class Tab3Page {
       document.getElementById('work').style.display = 'block';
       document.getElementById('preco').style.display = 'block';
       document.getElementById('descricao').style.display = 'block';
+      document.getElementById('disponibilidade').style.display = 'block';
   }
 }
 }

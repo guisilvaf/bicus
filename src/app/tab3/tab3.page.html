@@ -32,7 +32,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-input type="email" placeholder="E-mail ex: user@gmail.com" pattern="^[A-Za-z0-9_.]+@[a-z]+.[a-z]+$"
+        <ion-input type="email" placeholder="E-mail ex: user@gmail.com"
         title="E-mail válido" [(ngModel)]='data.email' required></ion-input>
       </ion-item>
 
@@ -43,7 +43,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-input type="text" placeholder="CPF ex: 000.000.000-00" maxlength="14" pattern="^(\d{3}\.\d{3}\.\d{3}-\d{2})$"
+        <ion-input type="text" placeholder="CPF ex: 000.000.000-00" maxlength="14"
         title="cpf válido" [(ngModel)]='data.cpf' required></ion-input>
       </ion-item>
 
@@ -52,17 +52,17 @@
       </ion-item>
 
       <ion-item>
-        <ion-input type="text" placeholder="CEP ex: 00000-000" maxlength = "10" pattern="^(\d{5}\-\d{3})$"
+        <ion-input type="text" placeholder="CEP ex: 00000-000" maxlength = "10"
         title="cep válido" [(ngModel)]='data.cep' required></ion-input> 
       </ion-item>
 
       <ion-item>
-        <ion-input type="tel" placeholder="Número de celular ex: (61) 99999-9999" maxlength="15" pattern="\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}" 
+        <ion-input type="tel" placeholder="Número de celular ex: (61) 99999-9999" maxlength="15" 
         title="número válido" [(ngModel)]='data.cell' required></ion-input>
       </ion-item>
       
       <ion-item>
-        <ion-input type="tel" placeholder="Número fixo(opcional) ex: (61) 3333-3333"  maxlength="14" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4}" 
+        <ion-input type="tel" placeholder="Número fixo(opcional) ex: (61) 3333-3333"  maxlength="14" 
         title="número válido" [(ngModel)]='data.phone'></ion-input>
       </ion-item>
 
@@ -152,6 +152,11 @@
       <ion-item id="descricao">
         <ion-input type="text" placeholder="Digite uma pequena descrição do seu serviço" [(ngModel)]='data.desc'></ion-input>        
       </ion-item>
+
+      <ion-item id="disponibilidade">
+        <ion-input type="text" placeholder="Digite os dias disponíveis."
+        [(ngModel)]='data.availability'></ion-input>
+      </ion-item>      
     </div>
 
     <div class="ion-padding">
