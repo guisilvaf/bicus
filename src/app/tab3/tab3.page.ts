@@ -7,16 +7,19 @@ import { UsersService } from '../services/users.service';
 })
 export class Tab3Page {
   public data = {
+    cpf: null,
     username: null,
     born: null,
     email: null,
     password: null,
-    cpf: null,
+    gender: 'masculino',
+    civil: 'solteiro(a)',
     cell: null,
     phone: null,
     speciality: null,
     preco: null,
     descricao: null,
+    availability: null,
     endereco: null,
     cep: null
   };
@@ -38,6 +41,7 @@ export class Tab3Page {
   }
 
   signUp() {
+    console.log(this.data.cpf);
     this.usersService.addUser(this.data)
     .subscribe();
   }

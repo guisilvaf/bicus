@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { CADASTROS } from "../listaCadastro";
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: "app-tab1",
@@ -7,5 +8,16 @@ import { CADASTROS } from "../listaCadastro";
   styleUrls: ["tab1.page.scss"]
 })
 export class Tab1Page {
-  constructor() {}
+  public workers = [];
+
+  constructor(private usersService: UsersService) {
+    this.getWorkers();
+  }
+
+  getWorkers() {
+    this.usersService.getWorkers()
+    .subscribe(workers => {
+      this.workers = workers;
+    });
+  }
 }

@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var body_parser_1 = __importDefault(require("body-parser"));
 var users_route_1 = __importDefault(require("./routes/users.route"));
+var workers_route_1 = __importDefault(require("./routes/workers.route"));
 var works_route_1 = __importDefault(require("./routes/works.route"));
 var cors = require("cors");
 var Server = /** @class */ (function () {
@@ -24,6 +25,7 @@ var Server = /** @class */ (function () {
     };
     Server.prototype.routes = function () {
         this.app.use('/api/users', users_route_1.default);
+        this.app.use('/api/workers', workers_route_1.default);
         this.app.use('/api/works', works_route_1.default);
     };
     Server.prototype.start = function () {

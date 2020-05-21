@@ -15,4 +15,8 @@ export class UsersService {
   public addUser(data): Observable<any> {
     return this.http.post('http://localhost:8080/api/users/', data);
   }
+
+  public getWorkers(): Observable<any> {
+    return this.http.get('http://localhost:8080/api/workers/');
+  }
 }

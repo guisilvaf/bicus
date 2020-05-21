@@ -8,6 +8,6 @@ var UsersRouter = express_1.Router();
 UsersRouter.route('/')
     .get(users_controller_1.getUsers)
     .post(users_controller_3.addUser);
-UsersRouter.route('/:userId')
-    .get(users_controller_2.getUserById);
+UsersRouter.route('/:userCPF')
+    .get(users_controller_2.getUserByCPF);
 exports.default = UsersRouter;
