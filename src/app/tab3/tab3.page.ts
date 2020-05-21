@@ -17,8 +17,8 @@ export class Tab3Page {
     cell: null,
     phone: null,
     speciality: null,
-    preco: null,
-    descricao: null,
+    price: null,
+    desc: null,
     availability: null,
     endereco: null,
     cep: null
