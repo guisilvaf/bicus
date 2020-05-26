@@ -33,17 +33,21 @@
             </ion-card-content>
             <ion-card-content>
               <h6>
-                <ion-icon name="calendar-outline"></ion-icon> {{worker.sexo}}
+                <ion-icon name="male-female-outline"></ion-icon> {{worker.sexo}}
               </h6>
             </ion-card-content>
             <ion-card-content>
               <h6>
-                <ion-icon name="calendar-outline"></ion-icon> {{worker.especialidade}}
+                <ion-icon name="construct-outline"></ion-icon> {{worker.especialidade}}
+              </h6>
+            </ion-card-content>
+            <ion-card-content>
+              <h6>
+                <ion-icon name="home-outline"></ion-icon> {{worker.cidade}}
               </h6>
             </ion-card-content>               
           </ion-card-header>
         </ion-col>
-
         <ion-col size="6" class="ion-padding-top">
           <ion-grid>
             <ion-row>
@@ -54,11 +58,10 @@
             </ion-row>
           </ion-grid>
         </ion-col>
-
         <ion-col size="2">
           <ion-grid>
             <ion-row>
-              <ion-button color="primary" expand="block">
+              <ion-button color="primary" expand="block" href="/tabs/tab4"> 
                 Contratar
               </ion-button>
             </ion-row>

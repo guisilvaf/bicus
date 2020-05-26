@@ -15,6 +15,11 @@ export class Tab3Page {
     gender: 'masculino',
     civil: 'solteiro(a)',
     cell: null,
+    bairro: null,
+    city: null,
+    uf: null,
+    numero: null,
+    complemento: null,
     phone: null,
     speciality: null,
     price: null,
@@ -55,6 +60,7 @@ export class Tab3Page {
       document.getElementById('preco').style.display = 'none'
       document.getElementById('descricao').style.display = 'none';
       document.getElementById('disponibilidade').style.display = 'none';
+      document.getElementById('profissionais').style.display = 'none';
   
   } else if(display === document.getElementById('profissional')){
       //abas disponíveis além das já existentes para cadastro como profissional.
@@ -63,7 +69,7 @@ export class Tab3Page {
       document.getElementById('preco').style.display = 'block';
       document.getElementById('descricao').style.display = 'block';
       document.getElementById('disponibilidade').style.display = 'block';
+      document.getElementById('profissionais').style.display = 'block';
   }
 }
 }
-

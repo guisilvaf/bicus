@@ -27,7 +27,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-input type="text" placeholder="Nome completo" maxlength="20" pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+        <ion-input type="text" placeholder="Nome completo" pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
         title="Nome válido" [(ngModel)]='data.username' required></ion-input>
       </ion-item>
 
@@ -43,26 +43,54 @@
       </ion-item>
 
       <ion-item>
-        <ion-input type="text" placeholder="CPF ex: 000.000.000-00" maxlength="14"
+        <ion-input type="text" placeholder="CPF ex: 000.000.000-00" maxlength="11"
         title="cpf válido" [(ngModel)]='data.cpf' required></ion-input>
       </ion-item>
 
+       <ion-item>
+        <ion-label>Endereço:</ion-label>
+      </ion-item>     
+
       <ion-item>
-        <ion-input type="text" placeholder="Endereço" [(ngModel)]='data.endereco'></ion-input>
+        <ion-input type="text" placeholder="Logradouro" [(ngModel)]='data.endereco'></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input type="text" placeholder="CEP ex: 00000-000" maxlength = "10"
+        <ion-input type="text" placeholder="Bairro" [(ngModel)]='data.bairro'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Cidade" [(ngModel)]='data.city'></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-input type="text" placeholder="UF" maxlength = "2" [(ngModel)]='data.uf'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="number" placeholder="Número"[(ngModel)]='data.numero'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Complemento" [(ngModel)]='data.complemento'></ion-input>
+      </ion-item>
+
+      <ion-item>        
+        <ion-input type="text" placeholder="CEP ex: 00000-000" maxlength = "8"
         title="cep válido" [(ngModel)]='data.cep' required></ion-input> 
       </ion-item>
 
       <ion-item>
-        <ion-input type="tel" placeholder="Número de celular ex: (61) 99999-9999" maxlength="15" 
+        <ion-label>Números para contato:</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="tel" placeholder="Número de celular ex: (61) 99999-9999" maxlength="11" 
         title="número válido" [(ngModel)]='data.cell' required></ion-input>
       </ion-item>
       
       <ion-item>
-        <ion-input type="tel" placeholder="Número fixo(opcional) ex: (61) 3333-3333"  maxlength="14" 
+        <ion-input type="tel" placeholder="Número fixo(opcional) ex: (61) 3333-3333"  maxlength="10" 
         title="número válido" [(ngModel)]='data.phone'></ion-input>
       </ion-item>
 
@@ -128,6 +156,10 @@
             <ion-checkbox color="primary" slot="start"></ion-checkbox>
           </ion-item>
         </ion-row>      
+      </ion-item>
+
+      <ion-item id="profissionais">
+        <ion-label>Opções complementares:</ion-label>
       </ion-item>
 
       <ion-item id="atuação">
