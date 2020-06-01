@@ -4,72 +4,35 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
-    <ion-grid>
+<ion-content >
+  <ion-grid fixed>
+    <ion-card *ngFor='let worker of workers'>
       <ion-row>
-        <ion-col>
           <ion-img src="assets/img/avatarMaria.jpg" alt="Foto" ></ion-img>
-        </ion-col>
         
         <ion-col>
           <ion-card-header>
-            <ion-input>
-              <h6><ion-icon name="people"></ion-icon>Nome Completo</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="cash"></ion-icon>Preço</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="calendar-outline"></ion-icon>Disponibilidade</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="male-female-outline"></ion-icon>Sexo</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="construct-outline"></ion-icon>Especialidade</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="mail-open-outline"></ion-icon>E-mail</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="call-outline"></ion-icon>Telefone Celular</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="call-outline"></ion-icon>Telefone Fixo</h6>
-            </ion-input> 
-            <ion-input>
-              <h6><ion-icon name="home-outline"></ion-icon>Logradouro</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="home-outline"></ion-icon>Bairro</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="home-outline"></ion-icon>Cidade</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="home-outline"></ion-icon>UF</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="home-outline"></ion-icon>Número</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="home-outline"></ion-icon>Complemento</h6>
-            </ion-input>
-            <ion-input>
-              <h6><ion-icon name="home-outline"></ion-icon>CEP</h6>
-            </ion-input>            
+            <ion-card-content>
+              <h6><ion-icon name="people"></ion-icon> {{worker.nome}}</h6>
+              <h6><ion-icon name="cash"></ion-icon> R${{worker.preco}}</h6>
+              <h6><ion-icon name="calendar-outline"></ion-icon> {{worker.disponibilidade}}</h6>
+              <h6><ion-icon name="male-female-outline"></ion-icon> {{worker.sexo}}</h6>
+              <h6><ion-icon name="construct-outline"></ion-icon> {{worker.especialidade}}</h6>
+              <h6><ion-icon name="mail-open-outline"></ion-icon>{{worker.email}}</h6>
+              <h6><ion-icon name="call-outline"></ion-icon> Celular</h6>
+              <h6><ion-icon name="call-outline"></ion-icon> Fixo</h6>
+              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.endereco}}</h6>
+              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.bairro}}</h6>
+              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.cidade}}</h6>
+              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.uf}}</h6>
+              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.numero}}</h6>
+              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.complemento}}</h6>
+              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.cep}}</h6><br>
+              <ion-label><b>Descrição</b><br>{{worker.descricao}}</ion-label>
+            </ion-card-content>            
           </ion-card-header>    
-        </ion-col>
-
-        <ion-col>
-          <ion-grid>
-            <ion-row>
-              <ion-label><b>Descrição</b></ion-label>
-            </ion-row>
-          </ion-grid>
-        </ion-col>  
+        </ion-col>             
       </ion-row>
-    </ion-grid>
-  </ion-card>
+    </ion-card>  
+  </ion-grid>
 </ion-content>

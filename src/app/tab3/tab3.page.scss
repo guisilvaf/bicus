@@ -1,24 +1,2 @@
 $white-color: #fff;
 $height100: 100%;
-
-ion-content {
-  --background: rgb(59, 54, 63);
-}
-
-ion-row {
-  width: 80%;
-  height: 100%;
-  position: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-ion-card {
-  border: 2px solid #488aff;
-  background: $white-color;
-  border-radius: 5px;
-}
-
