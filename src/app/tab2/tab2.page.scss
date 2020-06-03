@@ -5,3 +5,24 @@ ion-grid {
   width:100%;
   height: $height100;
 }
+
+ion-card {
+  background: #fff;
+  border-radius: 10px;
+  width: 55%;
+  height: 77%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+ion-content, ion-button {
+  --background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+}
+
+#forgotPassword {
+  float: right;
+}

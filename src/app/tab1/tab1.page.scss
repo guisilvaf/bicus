@@ -1,11 +1,18 @@
-ion-icon#icon-cash {
-  color: green;
+ion-content, ion-button {
+  --background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
 }
 
-ion-card#card-trabalhador {
-  background-color: #f0f0f0;
+ion-searchbar {
+  --background: #fff;
+  --border-radius: 10px;
+}
+ion-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 77px 55px 33px 55px;
 }
 
-ion-searchbar#searchbar {
-  background-color: #f0f0f0;
+hr {
+  border-top: 1px solid burlywood;
 }
+

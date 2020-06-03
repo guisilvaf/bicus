@@ -4,16 +4,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <ion-grid fixed>
-    <ion-card *ngFor='let worker of workers'>
-      <ion-row>
-          <ion-img src="assets/img/avatarMaria.jpg" alt="Foto" ></ion-img>
-        
-        <ion-col>
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <ion-card *ngFor='let worker of workers'>
           <ion-card-header>
-            <ion-card-content>
-              <h6><ion-icon name="people"></ion-icon> {{worker.nome}}</h6>
+            <ion-avatar>
+              <ion-img src="assets/img/avatarMaria.jpg" alt="Foto" ></ion-img>
+            </ion-avatar>
+            <h6>{{worker.nome}}</h6>
+            <hr>
+          </ion-card-header>
+
+          <ion-card-content>
+            <h3 class="ion-text-center"><strong>Descrição</strong></h3>
+            <p class="ion-text-center">{{worker.descricao}}</p>
+            <hr>
+            <ion-list>
               <h6><ion-icon name="cash"></ion-icon> R${{worker.preco}}</h6>
               <h6><ion-icon name="calendar-outline"></ion-icon> {{worker.disponibilidade}}</h6>
               <h6><ion-icon name="male-female-outline"></ion-icon> {{worker.sexo}}</h6>
@@ -28,11 +36,10 @@
               <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.numero}}</h6>
               <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.complemento}}</h6>
               <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.cep}}</h6><br>
-              <ion-label><b>Descrição</b><br>{{worker.descricao}}</ion-label>
-            </ion-card-content>            
-          </ion-card-header>    
-        </ion-col>             
-      </ion-row>
-    </ion-card>  
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>

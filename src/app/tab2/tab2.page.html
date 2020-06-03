@@ -6,25 +6,39 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-	<ion-grid fixed>
+	<ion-grid >
   		<ion-row justify-content-center>
-			<ion-col >
-				<div>
-					<h4 class="ion-text-center">Login</h4>
-				</div>
+			<ion-col>
 				<div class="ion-padding">
-					<ion-item>
-						<ion-input type="E-mail" placeholder="E-mail"></ion-input>
-					</ion-item>
-					<ion-item>
-						<ion-input type="password" placeholder="Senha"></ion-input>
-					</ion-item>
-				</div>
-				<div class="ion-padding">
-					<ion-button size="medium" href="/tabs/tab5" expand="block">Login</ion-button>
-				</div>
-				<div class="ion-padding">
-					<ion-button size="medium" href="/tabs/tab3" expand="block">Criar conta</ion-button>
+					<ion-card id="card">
+						<ion-card-header id="header">
+							<h2 class="ion-text-center">Login</h2>
+						</ion-card-header>
+						<ion-card-content>
+							<ion-list>
+								<ion-item>
+									<ion-label position="floating">Email</ion-label>
+									<ion-input type="email" required></ion-input>
+								</ion-item>
+								
+								<ion-item>
+									<ion-label position="floating">Password</ion-label>
+									<ion-input type="password" required></ion-input>
+								</ion-item>
+
+								<div id="forgotPassword" class="ion-padding">
+									<a href="#" style="text-decoration:none">Esqueceu a senha?</a>
+								</div>
+							</ion-list>
+
+							<div class="ion-padding">
+								<ion-button href="/tabs/tab1" expand="block">Login</ion-button>
+							</div>
+							<div class="ion-padding">
+								<ion-button href="/tabs/tab3" expand="block">Cadastrar</ion-button>
+							</div>
+						</ion-card-content>
+					</ion-card>
 				</div>
 			</ion-col>
 		</ion-row>
