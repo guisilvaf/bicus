@@ -181,16 +181,16 @@
         </ion-item>
 
          <ion-item id="preco">
-            <ion-input type="number" placeholder="Digite o valor médio cobrado pelo serviço" [(ngModel)]='data.price'></ion-input>        
+            <ion-textarea type="text" placeholder="Digite a sua tabela de preço" [(ngModel)]='data.price'></ion-textarea>        
         </ion-item>
 
         <ion-item id="descricao">
-          <ion-input type="text-area" placeholder="Digite uma pequena descrição do seu serviço" [(ngModel)]='data.desc'></ion-input>        
+          <ion-textarea type="text-area" placeholder="Digite uma pequena descrição do seu serviço" [(ngModel)]='data.desc'></ion-textarea>        
         </ion-item>
 
         <ion-item id="disponibilidade">
-          <ion-input type="text" placeholder="Digite os dias no qual você realiza esse tipo de serviço."
-          [(ngModel)]='data.availability'></ion-input>
+          <ion-textarea type="text" placeholder="Digite os dias no qual você realiza esse tipo de serviço."
+          [(ngModel)]='data.availability'></ion-textarea>
         </ion-item>      
       </div>
 

@@ -7,7 +7,8 @@
 </ion-header>
 
 <ion-content size ="6">
-  <ion-searchbar class="searchbar" placeholder="Pesquisar" [(ngModel)]="queryText" (ionInput)="filterNome($event)"></ion-searchbar>
+  <ion-searchbar id="searchbar" placeholder="Pesquisar por serviço"
+                (ionInput)="filterEspeciality($event)"></ion-searchbar>
 
     <ion-grid fixed>
         <ion-row class="ion-justify-content-center">
