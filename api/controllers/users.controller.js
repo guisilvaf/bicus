@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getWorkers = exports.addUser = exports.getUserByCPF = exports.getUsers = void 0;
+exports.login = exports.getWorkers = exports.addUser = exports.getUserByCPF = exports.getUsers = void 0;
 var config_1 = require("../sql/config");
 function getUsers(req, res) {
     var query = "SELECT u.cpf, u.nome, u.data_nascimento, u.email, u.senha, u.sexo, u.estado_civil, u.data_cadastro,\n    t.preco, t.descricao, t.disponibilidade, e.especialidade FROM usuario u \n    LEFT JOIN trabalhador t ON u.cpf = t.cpf\n    LEFT JOIN trabalhador_especialidade te ON u.cpf = te.cpf\n    LEFT JOIN especialidade e ON te.id_especialidade = e.id_especialidade;";
@@ -167,3 +167,13 @@ function getWorkers(req, res) {
     });
 }
 exports.getWorkers = getWorkers;
+function login(req, res) {
+    var data = req.body;
+    var query = "SELECT * FROM usuario WHERE email = '" + data.email + "' AND senha = '" + data.password + "';";
+    config_1.connection.query(query, function (err, results) {
+        if (err)
+            throw err;
+        res.status(200).json(results[0]);
+    });
+}
+exports.login = login;
