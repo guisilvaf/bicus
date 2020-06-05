@@ -14,10 +14,19 @@ export class Tab5Page {
   ngOnInit() {
     let userCPF = localStorage.getItem('userId');
     this.getUser(userCPF);
+
+    if(!localStorage.getItem('userId')) {
+      return location.href='tabs/tab2';
+    }
   }
 
   getUser(cpf) {
     this.usersService.getUserByCPF(cpf)
     .subscribe(user => this.userData = user);
+  }
+
+  logout() {
+    localStorage.removeItem('userId');
+    location.href='tabs/tab2';
   }
 }
