@@ -8,33 +8,36 @@
   <ion-grid fixed>
     <ion-row class="ion-justify-content-center">
       <ion-col>
-        <ion-card *ngFor='let worker of workers'>
+        <ion-card>
           <ion-card-header>
             <ion-avatar>
               <ion-img src="assets/img/avatarMaria.jpg" alt="Foto" ></ion-img>
             </ion-avatar>
-            <h6>{{worker.nome}}</h6>
+            <h6>{{userData.nome}}</h6>
             <hr>
           </ion-card-header>
 
           <ion-card-content>
             <h3 class="ion-text-center"><strong>Descrição</strong></h3>
-            <p class="ion-text-center">{{worker.descricao}}</p>
+            <p class="ion-text-center">{{userData.descricao}}</p>
             <hr>
             <ion-list>
-              <h6><ion-icon name="cash"></ion-icon> R${{worker.preco}}</h6>
-              <h6><ion-icon name="calendar-outline"></ion-icon> {{worker.disponibilidade}}</h6>
-              <h6><ion-icon name="male-female-outline"></ion-icon> {{worker.sexo}}</h6>
-              <h6><ion-icon name="construct-outline"></ion-icon> {{worker.especialidade}}</h6>
-              <h6><ion-icon name="mail-open-outline"></ion-icon>{{worker.email}}</h6>
-              <h6 *ngFor='let number of worker.userNumbers'><ion-icon name="call-outline"></ion-icon> {{number.cell}}</h6>
-              <h6 *ngFor='let number of worker.userNumbers'><ion-icon name="call-outline"></ion-icon> {{number.phone}}</h6>
-              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.endereco}}</h6>
-              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.cidade}}</h6>
-              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.uf}}</h6>
-              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.numero}}</h6>
-              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.complemento}}</h6>
-              <h6 *ngFor='let address of worker.userAddress'><ion-icon name="home-outline"></ion-icon> {{address.cep}}</h6><br>
+              <h6><ion-icon name="cash"></ion-icon> R${{userData.preco}}</h6>
+              <h6><ion-icon name="calendar-outline"></ion-icon> {{userData.disponibilidade}}</h6>
+              <h6><ion-icon name="male-female-outline"></ion-icon> {{userData.sexo}}</h6>
+              <h6><ion-icon name="construct-outline"></ion-icon> {{userData.especialidade}}</h6>
+              <h6><ion-icon name="mail-open-outline"></ion-icon>{{userData.email}}</h6>
+              <ion-list *ngFor='let number of userData.userNumbers'>
+                <h6><ion-icon name="call-outline"></ion-icon> {{number.cell}} </h6>
+                <h6><ion-icon name="call-outline"></ion-icon> {{number.phone}} </h6>
+              </ion-list>
+              <ion-list *ngFor='let address of userData.userAddress'>
+                <h6>
+                  <ion-icon name="home-outline"></ion-icon> 
+                  {{address.endereco}} - {{address.numero}} - {{address.complemento}} - {{address.cep}} | {{address.cidade}} - {{address.uf}}
+                </h6>
+                <br>
+              </ion-list>
             </ion-list>
           </ion-card-content>
         </ion-card>

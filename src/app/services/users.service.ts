@@ -23,4 +23,8 @@ export class UsersService {
   public login(data): Observable<any> {
     return this.http.post('http://localhost:8080/api/users/login/', data);
   }
+
+  public getUserByCPF(cpf): Observable<any> {
+    return this.http.get(`http://localhost:8080/api/users/${cpf}`);
+  }
 }

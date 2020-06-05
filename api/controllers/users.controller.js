@@ -10,7 +10,7 @@ function getUsers(req, res) {
         var count = 0;
         results.forEach(function (result, index, array) {
             // Pegar telefone
-            var query1 = "SELECT celular, fixo FROM telefone WHERE cpf_usuario = " + result.cpf;
+            var query1 = "SELECT celular, fixo FROM telefone WHERE cpf_usuario = '" + result.cpf + "'";
             config_1.connection.query(query1, function (err, phones) {
                 if (err)
                     throw err;
@@ -21,7 +21,7 @@ function getUsers(req, res) {
                 results[index].userNumbers = userPhones;
             });
             // Pegar endereço.
-            var query2 = "SELECT cep, logradouro, bairro, cidade, uf, numero, complemento FROM endereco WHERE cpf_usuario = " + result.cpf;
+            var query2 = "SELECT cep, logradouro, bairro, cidade, uf, numero, complemento FROM endereco WHERE cpf_usuario = '" + result.cpf + "'";
             config_1.connection.query(query2, function (err, address) {
                 if (err)
                     throw err;
@@ -54,7 +54,7 @@ function getUserByCPF(req, res) {
         if (err)
             throw err;
         // Pegar telefone    
-        var query1 = "SELECT celular, fixo FROM telefone WHERE cpf_usuario = " + results[0].cpf;
+        var query1 = "SELECT celular, fixo FROM telefone WHERE cpf_usuario = '" + results[0].cpf + "';";
         config_1.connection.query(query1, function (err, phones) {
             if (err)
                 throw err;
@@ -65,7 +65,7 @@ function getUserByCPF(req, res) {
             results[0].userNumbers = userPhones;
         });
         // Pegar enderecos   
-        var query2 = "SELECT cep, logradouro, bairro, cidade, uf, numero, complemento FROM endereco WHERE cpf_usuario = " + results[0].cpf;
+        var query2 = "SELECT cep, logradouro, bairro, cidade, uf, numero, complemento FROM endereco WHERE cpf_usuario = '" + results[0].cpf + "'";
         config_1.connection.query(query2, function (err, address) {
             if (err)
                 throw err;
@@ -130,7 +130,7 @@ function getWorkers(req, res) {
         // Pegar telefone
         var count = 0;
         results.forEach(function (result, index, array) {
-            var query1 = "SELECT celular, fixo FROM telefone WHERE cpf_usuario = " + result.cpf;
+            var query1 = "SELECT celular, fixo FROM telefone WHERE cpf_usuario = '" + result.cpf + "'";
             config_1.connection.query(query1, function (err, phones) {
                 if (err)
                     throw err;
@@ -141,7 +141,7 @@ function getWorkers(req, res) {
                 results[index].userNumbers = userPhones;
             });
             // Pegar endereço.
-            var query2 = "SELECT cep, logradouro, bairro, cidade, uf, numero, complemento FROM endereco WHERE cpf_usuario = " + result.cpf;
+            var query2 = "SELECT cep, logradouro, bairro, cidade, uf, numero, complemento FROM endereco WHERE cpf_usuario = '" + result.cpf + "'";
             config_1.connection.query(query2, function (err, address) {
                 if (err)
                     throw err;

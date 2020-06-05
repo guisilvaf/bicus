@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { CADASTROS } from "../listaCadastro";
 import { UsersService } from '../services/users.service';
 
 @Component({
@@ -8,16 +7,17 @@ import { UsersService } from '../services/users.service';
   styleUrls: ["tab5.page.scss"]
 })
 export class Tab5Page {
-  public workers = [];
+  public userData = {};
 
-  constructor(private usersService: UsersService) {
-    this.getWorkers();
+  constructor(private usersService: UsersService) { }
+
+  ngOnInit() {
+    let userCPF = localStorage.getItem('userId');
+    this.getUser(userCPF);
   }
 
-  getWorkers() {
-    this.usersService.getWorkers()
-    .subscribe(workers => {
-      this.workers = workers;
-    });
+  getUser(cpf) {
+    this.usersService.getUserByCPF(cpf)
+    .subscribe(user => this.userData = user);
   }
 }

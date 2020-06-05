@@ -10,25 +10,28 @@ import { UsersService } from '../services/users.service';
 
 export class Tab1Page {
   public workers: any = [];
+  public srWorkers: any = [];
 
   constructor(private usersService: UsersService) {
     this.getWorkers();
   }
-
+  
   filterEspeciality(ev: any){
     this.usersService.getWorkers();
     const val = ev.target.value;
-    if(val && val.trim() != ''){
-      this.workers = this.workers.filter((worker)=>{
-        return (worker.especialidade.toLowerCase().indexOf(val.toLowerCase())>-1);
-      })
-    }   
-  }
 
+    this.srWorkers = this.workers.filter((worker) => {
+      return (worker.especialidade.toLowerCase().indexOf(val.toLowerCase())>-1);
+    })
+
+    if(!this.srWorkers.length) return this.srWorkers = this.workers;
+  }
+  
   getWorkers() {
     this.usersService.getWorkers()
     .subscribe(workers => {
       this.workers = workers;
+      this.srWorkers = this.workers;
     });
   }
 }
