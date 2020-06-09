@@ -7,7 +7,11 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'tab4',
+    path: 'tab2',
+    loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule)
+  },
+  {
+    path: 'tab4/:workerCPF',
     loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
   },
   {

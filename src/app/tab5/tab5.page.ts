@@ -12,12 +12,12 @@ export class Tab5Page {
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
+    if(!localStorage.getItem('userId')) {
+      return location.href='tab2';
+    }
+
     let userCPF = localStorage.getItem('userId');
     this.getUser(userCPF);
-
-    if(!localStorage.getItem('userId')) {
-      return location.href='tabs/tab2';
-    }
   }
 
   getUser(cpf) {
@@ -27,6 +27,6 @@ export class Tab5Page {
 
   logout() {
     localStorage.removeItem('userId');
-    location.href='tabs/tab2';
+    location.href='tab2';
   }
 }
