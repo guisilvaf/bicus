@@ -10,6 +10,11 @@
   <ion-searchbar id="searchbar" placeholder="Pesquisar por serviço"
                 (ionInput)="filterEspeciality($event)"></ion-searchbar>
 
+  <IonSelect value={} placeholder="Selecione o desejado" onIonChange={}>
+    <IonSelectOption value="">Menor Preço</IonSelectOption>
+    <IonSelectOption value="">Data de cadastro</IonSelectOption>
+  </IonSelect>
+
     <ion-grid fixed>
         <ion-row class="ion-justify-content-center">
           <ion-col>
