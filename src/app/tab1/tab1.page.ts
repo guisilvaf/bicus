@@ -11,6 +11,7 @@ import { UsersService } from '../services/users.service';
 export class Tab1Page {
   public workers: any = [];
   public srWorkers: any = [];
+  private test = [1, 100, 3, 10, 14, 4];
 
   constructor(private usersService: UsersService) {
     this.getWorkers();
@@ -33,5 +34,17 @@ export class Tab1Page {
       this.workers = workers;
       this.srWorkers = this.workers;
     });
+  }
+
+  // Ordernar lista de trabalhadores.
+  changeOrder($event) {
+    if($event.target.value == 'price') {
+      this.srWorkers.sort((a, b) => {
+        return a.preco - b.preco;
+      });
+      return;
+    }
+
+    this.getWorkers();
   }
 }
