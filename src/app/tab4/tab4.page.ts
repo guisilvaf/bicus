@@ -23,7 +23,7 @@ export class Tab4Page {
 
   ngOnInit() {
     if(!localStorage.getItem('userId')) {
-      return location.href='/tab2';
+      return location.href='tabs/tab2';
     }
 
     // Pegar dados do usuário logado.

@@ -13,7 +13,7 @@ export class Tab5Page {
 
   ngOnInit() {
     if(!localStorage.getItem('userId')) {
-      return location.href='tab2';
+      return location.href='tabs/tab2';
     }
 
     let userCPF = localStorage.getItem('userId');
@@ -27,6 +27,6 @@ export class Tab5Page {
 
   logout() {
     localStorage.removeItem('userId');
-    location.href='tab2';
+    location.href='tabs/tab2';
   }
 }

@@ -49,7 +49,7 @@ function getUsers(req, res) {
 exports.getUsers = getUsers;
 function getUserByCPF(req, res) {
     var data = req.params;
-    var query = "SELECT u.cpf, u.nome, u.data_nascimento, u.email, u.senha, u.sexo, u.estado_civil, u.data_cadastro,\n    t.preco, t.descricao, t.disponibilidade, e.especialidade FROM usuario u \n    LEFT JOIN trabalhador t ON u.cpf = t.cpf\n    LEFT JOIN trabalhador_especialidade te ON u.cpf = te.cpf\n    LEFT JOIN especialidade e ON te.id_especialidade = e.id_especialidade\n    WHERE u.cpf = " + data.userCPF + ";";
+    var query = "SELECT u.cpf, u.nome, u.data_nascimento, u.email, u.senha, u.sexo, u.estado_civil, u.data_cadastro,\n    t.preco, t.descricao, t.disponibilidade, e.especialidade FROM usuario u \n    LEFT JOIN trabalhador t ON u.cpf = t.cpf\n    LEFT JOIN trabalhador_especialidade te ON u.cpf = te.cpf\n    LEFT JOIN especialidade e ON te.id_especialidade = e.id_especialidade\n    WHERE u.cpf = '" + data.userCPF + "';";
     config_1.connection.query(query, function (err, results) {
         if (err)
             throw err;
