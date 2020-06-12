@@ -181,7 +181,9 @@
         </ion-item>
 
          <ion-item id="preco">
-            <ion-input type="text" placeholder="Digite o valor" [(ngModel)]='data.price'></ion-input>        
+            <ion-input type="text" placeholder="Digite o valor" 
+            [brmasker]="{money: true, decimalCaracter: '.', decimal: 2}" [(ngModel)]='data.price'>
+            </ion-input>
         </ion-item>
 
         <ion-item id="descricao">
