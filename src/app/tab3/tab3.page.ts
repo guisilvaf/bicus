@@ -72,4 +72,20 @@ export class Tab3Page {
       document.getElementById('profissionais').style.display = 'block';
   }
 }
+
+  validaCPF(){
+    let value = (<HTMLSelectElement>document.getElementById('cpf')).value;
+    if( value.length != 14||
+        value === '123.456.789-09'||
+        value === '000.000.000-00'|| 
+        value === '111.111.111-11'||
+        value === '222.222.222-22'||
+        value === '333.333.333-33'||
+        value === '444.444.444-44'||
+        value === '555.555.555-55'||
+        value === '666.666.666-66'||
+        value === '777.777.777-77'||
+        value === '888.888.888-88'||
+        value === '999.999.999-99') {  alert("False CPF") }
+  }
 }

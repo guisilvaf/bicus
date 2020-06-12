@@ -46,8 +46,9 @@
         </ion-item>
 
         <ion-item>
-          <ion-input type="text" placeholder="CPF ex: 000.000.000-00" maxlength="14"
-          title="cpf válido" [(ngModel)]='data.cpf' [brmasker]="{mask:'000.000.000-00'}" required></ion-input>
+          <ion-input id="cpf" type="text" placeholder="CPF ex: 000.000.000-00" maxlength="14"
+          title="cpf válido" [(ngModel)]='data.cpf' [brmasker]="{mask:'000.000.000-00'}" 
+          (ionBlur)="validaCPF()" required></ion-input>
         </ion-item>
 
          <ion-item>
