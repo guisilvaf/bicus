@@ -27,4 +27,8 @@ export class UsersService {
   public getUserByCPF(cpf): Observable<any> {
     return this.http.get(`http://localhost:8080/api/users/${cpf}`);
   }
+
+  public update(data): Observable<any> {
+    return this.http.get(`http://localhost:8080/api/users/update`, data);
+  }
 }

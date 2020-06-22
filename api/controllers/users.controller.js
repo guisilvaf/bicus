@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.login = exports.getWorkers = exports.addUser = exports.getUserByCPF = exports.getUsers = void 0;
+exports.updateUser = exports.login = exports.getWorkers = exports.addUser = exports.getUserByCPF = exports.getUsers = void 0;
 var config_1 = require("../sql/config");
 function getUsers(req, res) {
-    var query = "SELECT u.cpf, u.nome, u.data_nascimento, u.email, u.senha, u.sexo, u.estado_civil, u.data_cadastro,\n    t.preco, t.descricao, t.disponibilidade, e.especialidade FROM usuario u \n    LEFT JOIN trabalhador t ON u.cpf = t.cpf\n    LEFT JOIN trabalhador_especialidade te ON u.cpf = te.cpf\n    LEFT JOIN especialidade e ON te.id_especialidade = e.id_especialidade;";
+    var query = "SELECT u.cpf, u.nome, u.imagem, u.data_nascimento, u.email, u.senha, u.sexo, u.estado_civil, u.data_cadastro,\n    t.preco, t.descricao, t.disponibilidade, e.especialidade FROM usuario u \n    LEFT JOIN trabalhador t ON u.cpf = t.cpf\n    LEFT JOIN trabalhador_especialidade te ON u.cpf = te.cpf\n    LEFT JOIN especialidade e ON te.id_especialidade = e.id_especialidade;";
     config_1.connection.query(query, function (err, results) {
         if (err)
             throw err;
@@ -49,7 +49,7 @@ function getUsers(req, res) {
 exports.getUsers = getUsers;
 function getUserByCPF(req, res) {
     var data = req.params;
-    var query = "SELECT u.cpf, u.nome, u.data_nascimento, u.email, u.senha, u.sexo, u.estado_civil, u.data_cadastro,\n    t.preco, t.descricao, t.disponibilidade, e.especialidade FROM usuario u \n    LEFT JOIN trabalhador t ON u.cpf = t.cpf\n    LEFT JOIN trabalhador_especialidade te ON u.cpf = te.cpf\n    LEFT JOIN especialidade e ON te.id_especialidade = e.id_especialidade\n    WHERE u.cpf = '" + data.userCPF + "';";
+    var query = "SELECT u.cpf, u.nome, u.imagem, u.data_nascimento, u.email, u.senha, u.sexo, u.estado_civil, u.data_cadastro,\n    t.preco, t.descricao, t.disponibilidade, e.especialidade FROM usuario u \n    LEFT JOIN trabalhador t ON u.cpf = t.cpf\n    LEFT JOIN trabalhador_especialidade te ON u.cpf = te.cpf\n    LEFT JOIN especialidade e ON te.id_especialidade = e.id_especialidade\n    WHERE u.cpf = '" + data.userCPF + "';";
     config_1.connection.query(query, function (err, results) {
         if (err)
             throw err;
@@ -89,7 +89,7 @@ function getUserByCPF(req, res) {
 exports.getUserByCPF = getUserByCPF;
 function addUser(req, res) {
     var data = req.body;
-    var query = "INSERT INTO usuario (cpf, nome, data_nascimento, email, senha, sexo, estado_civil)\n              VALUES ('" + data.cpf + "', '" + data.username + "', '" + data.born + "', '" + data.email + "', '" + data.password + "', '" + data.gender + "', '" + data.civil + "');";
+    var query = "INSERT INTO usuario (cpf, nome, imagem, data_nascimento, email, senha, sexo, estado_civil)\n              VALUES ('" + data.cpf + "', '" + data.username + "', '" + data.image + "', '" + data.born + "', '" + data.email + "', '" + data.password + "', '" + data.gender + "', '" + data.civil + "');";
     config_1.connection.query(query, function (err) {
         if (err)
             throw err;
@@ -177,3 +177,33 @@ function login(req, res) {
     });
 }
 exports.login = login;
+function updateUser(req, res) {
+    var data = req.body;
+    var query = "UPDATE usuario SET imagem = '" + data.image + "', email = '" + data.email + "', senha = '" + data.password + "',\n  estado_civil = '" + data.civil + "' WHERE cpf = '" + data.cpf + "';";
+    config_1.connection.query(query, function (err, results) {
+        if (err)
+            throw err;
+        var queryEnde = "UPDATE endereco SET cep = '" + data.cep + "', logradouro = '" + data.endereco + "', bairro = '" + data.bairro + "', cidade = '" + data.city + "',\n    uf = '" + data.uf + "', numero = '" + data.numero + "', complemento = '" + data.complemento + "' WHERE cpf_usuario = '" + data.cpf + "';";
+        config_1.connection.query(queryEnde, function (err) {
+            if (err)
+                throw err;
+        });
+        var queryTel = "UPDATE telefone SET celular = '" + data.cell + "', fixo = '" + data.phone + "' WHERE cpf_usuario = '" + data.cpf + "';";
+        config_1.connection.query(queryTel, function (err) {
+            if (err)
+                throw err;
+        });
+        var queryWorker = "UPDATE trabalhador SET preco = '" + data.price + "', descricao = '" + data.desc + "', disponibilidade = '" + data.availability + "' WHERE cpf = '" + data.cpf + "';";
+        config_1.connection.query(queryWorker, function (err) {
+            if (err)
+                throw err;
+        });
+        var querySpec = "UPDATE trabalhador_especialidade SET id_especialidade = '" + data.speciality + "' WHERE cpf = '" + data.cpf + "';";
+        config_1.connection.query(querySpec, function (err) {
+            if (err)
+                throw err;
+        });
+        res.status(201).json({ status: 'Sucesso', message: 'Usuário atualizado!' });
+    });
+}
+exports.updateUser = updateUser;

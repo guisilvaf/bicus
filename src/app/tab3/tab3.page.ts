@@ -9,6 +9,7 @@ export class Tab3Page {
   public data = {
     cpf: null,
     username: null,
+    image: null,
     born: null,
     email: null,
     password: null,
