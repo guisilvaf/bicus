@@ -73,4 +73,55 @@ export class Tab3Page {
       document.getElementById('profissionais').style.display = 'block';
   }
 }
+
+  validaCPF(){
+    let value = (<HTMLSelectElement>document.getElementById('cpf')).value;
+    value = value.replace(/[^\d]+/g,'');// retirando todos os caracteres adicinados pela máscara
+    if( value.length != 11||
+        value === '12345678909'||
+        value === '00000000000'|| 
+        value === '11111111111'||
+        value === '22222222222'||
+        value === '33333333333'||
+        value === '44444444444'||
+        value === '55555555555'||
+        value === '66666666666'||
+        value === '77777777777'||
+        value === '88888888888'||
+        value === '99999999999') {  return alert('CPF Inválido!!'); }
+
+        //validando 1º dígito verificador do cpf
+        let digitoVerificador;
+        let divisaoResto;
+        let calculo = 0;
+        for(let i = 0; i < 9; i++) {
+          calculo += parseInt(value.charAt(i)) * (10 - i);
+          divisaoResto = calculo % 11;	
+          if (Math.trunc(divisaoResto) < 2){
+            digitoVerificador = 0;
+          }	else if( Math.trunc(divisaoResto) >= 2){
+            digitoVerificador = 11 - divisaoResto;
+          }
+        }
+        //validando 2º dígito verificador do cpf
+        let digitoVerificador2;
+        let divisaoResto2;
+        let calculo2 = 0;
+        for(let i = 0; i < 10; i++) {
+          calculo2 += parseInt(value.charAt(i)) * (11 - i);
+          divisaoResto2 = calculo2 % 11;	
+          if (Math.trunc(divisaoResto2) < 2){
+            digitoVerificador2 = 0;
+          }	else if( Math.trunc(divisaoResto2) >= 2){
+            digitoVerificador2 = 11 - divisaoResto2;
+          }
+        }
+        //Agora verificar se cpf é válido de acordo com o algoritmo.	
+        if(digitoVerificador !== parseInt(value.charAt(9)) && digitoVerificador2 !== parseInt(value.charAt(10))){
+          alert('CPF Inválido!!');
+        }	else {
+          alert ('CPF Válido!!');
+        }	
+          
+  }
 }
