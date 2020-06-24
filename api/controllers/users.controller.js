@@ -143,7 +143,7 @@ function addUser(req, res) {
 }
 exports.addUser = addUser;
 function getWorkers(req, res) {
-    var query = "SELECT u.cpf, u.nome, u.data_nascimento, u.email, u.senha, u.sexo, u.estado_civil, u.data_cadastro,\n    t.preco, t.descricao, t.disponibilidade, e.especialidade FROM usuario u \n    INNER JOIN trabalhador t ON u.cpf = t.cpf\n    INNER JOIN trabalhador_especialidade te ON u.cpf = te.cpf\n    INNER JOIN especialidade e ON te.id_especialidade = e.id_especialidade;";
+    var query = "SELECT u.cpf, u.nome, u.imagem, u.data_nascimento, u.email, u.senha, u.sexo, u.estado_civil, u.data_cadastro,\n    t.preco, t.descricao, t.disponibilidade, e.especialidade FROM usuario u \n    INNER JOIN trabalhador t ON u.cpf = t.cpf\n    INNER JOIN trabalhador_especialidade te ON u.cpf = te.cpf\n    INNER JOIN especialidade e ON te.id_especialidade = e.id_especialidade;";
     config_1.connection.query(query, function (err, results) {
         if (err)
             throw err;
@@ -250,6 +250,7 @@ function recoveryPassword(req, res) {
             console.log(error);
         }
         else {
+            console.log('Email enviado!');
             res.status(201).json({ status: 'Sucesso', message: 'Email enviado!' });
         }
     });
