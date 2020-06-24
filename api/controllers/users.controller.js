@@ -1,7 +1,27 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateUser = exports.login = exports.getWorkers = exports.addUser = exports.getUserByCPF = exports.getUsers = void 0;
+exports.recoveryPassword = exports.updateUser = exports.login = exports.getWorkers = exports.addUser = exports.getUserByCPF = exports.getUsers = void 0;
 var config_1 = require("../sql/config");
+var nodemailer = __importStar(require("nodemailer"));
 function getUsers(req, res) {
     var query = "SELECT u.cpf, u.nome, u.imagem, u.data_nascimento, u.email, u.senha, u.sexo, u.estado_civil, u.data_cadastro,\n    t.preco, t.descricao, t.disponibilidade, e.especialidade FROM usuario u \n    LEFT JOIN trabalhador t ON u.cpf = t.cpf\n    LEFT JOIN trabalhador_especialidade te ON u.cpf = te.cpf\n    LEFT JOIN especialidade e ON te.id_especialidade = e.id_especialidade;";
     config_1.connection.query(query, function (err, results) {
@@ -207,3 +227,31 @@ function updateUser(req, res) {
     });
 }
 exports.updateUser = updateUser;
+function recoveryPassword(req, res) {
+    var data = req.params;
+    var transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        requireTLS: true,
+        auth: {
+            user: 'grupobicus@gmail.com',
+            pass: 'trabalhoestagio'
+        }
+    });
+    var mailOptions = {
+        from: 'grupobicus@gmail.com',
+        to: data.userEmail,
+        subject: 'Sending Email using Node.js',
+        text: "Sua senha \u00E9: " + data.userPassword
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            res.status(201).json({ status: 'Sucesso', message: 'Email enviado!' });
+        }
+    });
+}
+exports.recoveryPassword = recoveryPassword;

@@ -31,4 +31,8 @@ export class UsersService {
   public update(data): Observable<any> {
     return this.http.get(`http://localhost:8080/api/users/update`, data);
   }
+
+  public recoveryPassword(email, password): Observable<any> {
+    return this.http.get(`http://localhost:8080/api/users/recovery/${email}/${password}`);
+  }
 }

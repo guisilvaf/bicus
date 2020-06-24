@@ -5,6 +5,7 @@ var users_controller_2 = require("../controllers/users.controller");
 var users_controller_3 = require("../controllers/users.controller");
 var users_controller_4 = require("../controllers/users.controller");
 var users_controller_5 = require("../controllers/users.controller");
+var users_controller_6 = require("../controllers/users.controller");
 var express_1 = require("express");
 var UsersRouter = express_1.Router();
 UsersRouter.route('/')
@@ -16,4 +17,6 @@ UsersRouter.route('/login')
     .post(users_controller_4.login);
 UsersRouter.route('/update')
     .post(users_controller_5.updateUser);
+UsersRouter.route('/recovery/:userEmail/:userPassword')
+    .get(users_controller_6.recoveryPassword);
 exports.default = UsersRouter;
