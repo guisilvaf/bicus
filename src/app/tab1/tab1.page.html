@@ -26,7 +26,7 @@
             <ion-card id="card-trabalhador" *ngFor='let worker of srWorkers'>
               <ion-card-header>
                   <ion-avatar>
-                    <ion-img id="imageUser" src="assets/img/avatarMaria.jpg" alt="Foto"></ion-img>
+                    <ion-img id="imageUser" src="{{worker.imagem}}" alt="Foto"></ion-img>
                   </ion-avatar>
                   <h6> {{worker.nome}}</h6>
                   <hr>
