@@ -9,12 +9,17 @@ import { UsersService } from '../services/users.service';
   styleUrls: ['./tab6.page.scss'],
 })
 
-export class Tab6Page implements OnInit {
+export class Tab6Page {
 	public userData ={
 		email: null,
 		senha: null
-	};
-	private workerCPF;
+	}
+
+  public data={
+    cpf: null
+  };
+	
+  private workerCPF;
 	public workerData = [];
 	
   
@@ -26,14 +31,14 @@ export class Tab6Page implements OnInit {
     this.route.params.subscribe(params => this.workerCPF = params.workerCPF);
   }
 
-  ngOnInit() {
+   // ngOnInit() {
 
-    let userCPF = localStorage.getItem('userId');
-    this.getUser(userCPF);
+   // let userCPF = localStorage.getItem('userId');
+   //   this.getUser(userCPF);
 
-  }  
+   // }  
 
-  getUser(cpf) {
+  sgetUser(cpf) {
   	this.usersService.getUserByCPF(cpf)
   	.subscribe(user => this.userData = user);
   }
