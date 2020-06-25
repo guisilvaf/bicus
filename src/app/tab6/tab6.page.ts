@@ -10,44 +10,24 @@ import { UsersService } from '../services/users.service';
 })
 
 export class Tab6Page {
-	public userData ={
-		email: null,
-		senha: null
-	}
-
-  public data={
+	public data = {
     cpf: null
   };
 	
-  private workerCPF;
-	public workerData = [];
-	
-  
   constructor(
     private usersService: UsersService,
     private route: ActivatedRoute
-  ) { 
+  ) { }
 
-    this.route.params.subscribe(params => this.workerCPF = params.workerCPF);
-  }
-
-   // ngOnInit() {
-
-   // let userCPF = localStorage.getItem('userId');
-   //   this.getUser(userCPF);
-
-   // }  
-
-  sgetUser(cpf) {
-  	this.usersService.getUserByCPF(cpf)
-  	.subscribe(user => this.userData = user);
-  }
+  ngOnInit() { }  
 
   recoveryPassword(){
-  	this.usersService.recoveryPassword(this.userData.email, this.userData.senha)
-  	.subscribe(() => {
-  	 	alert("O email com sua senha foi enviado!");
-  	});
-  	console.log(this.userData.email);
+    this.usersService.getUserByCPF(this.data.cpf)
+  	.subscribe(user => {
+      this.usersService.recoveryPassword(user.email, user.senha)
+      .subscribe(() => {
+       	alert("O email com sua senha foi enviado!");
+      });
+    });
   }
 }
