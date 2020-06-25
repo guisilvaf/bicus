@@ -33,10 +33,10 @@ export class Tab6Page implements OnInit {
 
   }  
 
-   	getUser(cpf) {
-     	this.usersService.getUserByCPF(cpf)
-     	.subscribe(user => this.userData = user);
-  	}
+  getUser(cpf) {
+  	this.usersService.getUserByCPF(cpf)
+  	.subscribe(user => this.userData = user);
+  }
 
   recoveryPassword(){
   	this.usersService.recoveryPassword(this.userData.email, this.userData.senha)

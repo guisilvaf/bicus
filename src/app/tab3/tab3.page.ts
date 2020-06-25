@@ -119,8 +119,6 @@ export class Tab3Page {
         //Agora verificar se cpf é válido de acordo com o algoritmo.
         if(digitoVerificador !== parseInt(value.charAt(9)) && digitoVerificador2 !== parseInt(value.charAt(10))){
           alert('CPF Inválido!!');
-        }	else {
-          alert ('CPF Válido!!');
         }
 
   }
