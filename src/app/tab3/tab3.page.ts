@@ -120,6 +120,15 @@ export class Tab3Page {
         if(digitoVerificador !== parseInt(value.charAt(9)) && digitoVerificador2 !== parseInt(value.charAt(10))){
           alert('CPF Inválido!!');
         }
+      }
 
-  }
+      verificarSenha() {
+        let valueSenha = (<HTMLSelectElement>document.getElementById('senha')).value;
+        let valueConfirmaSenha =  (<HTMLSelectElement>document.getElementById('confirmeSenha')).value;
+        //verificar se senhas são iguais
+        if(valueSenha !== valueConfirmaSenha) {
+          alert('Senhas não coincidem!!!');
+        }
+      }
+
 }

@@ -36,24 +36,25 @@
               </ion-item>
 
               <ion-item>
-                <ion-input type="text" placeholder="Link da foto de perfil" [(ngModel)]='data.image' required></ion-input>
+                <ion-input type="text" placeholder="Link da foto de perfil" [(ngModel)]='data.image'></ion-input>
               </ion-item>
 
               <ion-item>
                 <ion-input type="email" placeholder="E-mail ex: user@gmail.com"
-                title="E-mail válido" [(ngModel)]='data.email' required></ion-input>
+                title="E-mail válido" [(ngModel)]='data.email' (ionBlur)="emailExistente()" required></ion-input>
               </ion-item>
 
               <ion-item>
-                <ion-input type="password" placeholder="Senha" [(ngModel)]='data.password' required></ion-input>
+                <ion-input id="senha" type="password" placeholder="Senha" [(ngModel)]='data.password' required></ion-input>
                 <ion-label>|</ion-label>
-                <ion-input type="password" placeholder="Confirmar senha" required></ion-input>
+                <ion-input id="confirmeSenha" type="password" placeholder="Confirmar senha"
+                (ionBlur)="verificarSenha()" required></ion-input>
               </ion-item>
 
               <ion-item>
                 <ion-input id="cpf" type="text" placeholder="CPF ex: 000.000.000-00" maxlength="14"
                 [(ngModel)]='data.cpf' [brmasker]="{mask:'000.000.000-00'}"
-                (ionBlur)="validaCPF()" required></ion-input>
+                (ionBlur)="validaCPF()" (ionBlur)="cpfExistente()" required></ion-input>
               </ion-item>
 
                <ion-item>
